@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace="com.crud.day6.dao.Day6DAO">
+ 	<insert id="addDay6">
+ 		INSERT INTO `day_6`
+ 		(
+	 		name
+			,phoneNumber
+			,email
+			,dreamJob
+			,year
+			,term
+			,subject
+			,score
+			,ranking
+			,awards
+			,createdAt
+			,updatedAt
+ 		)
+ 		VALUES
+ 		(
+ 			#{name}
+ 			,#{phoneNumber}
+ 			,#{email}
+ 			,#{dreamJob}
+ 			,#{year}
+ 			,#{term}
+ 			,#{subject}
+ 			,#{score}
+ 			,#{ranking}
+ 			,#{awards}
+ 			,NOW()
+ 			,NOW() 			
+ 		)
+ 	</insert>
+ 	<update id="updateDay6">
+ 		UPDATE `day_6`
+ 		SET	
+ 			name = #{name}
+			,phoneNumber = #{phoneNumber}
+			,email = #{email}
+			,dreamJob = #{dreamJob}
+			,year = #{year}
+			,term = #{term}
+			,subject = #{subject}
+			,score = #{score}
+			,ranking = #{ranking}
+			,awards = #{awards}
+			,updatedAt = NOW()
+ 		WHERE
+ 			id = #{id}
+ 	</update>
+ 	<select id="getDay6" resultType="com.crud.day6.vo.Day6">
+ 	SELECT * FROM `day_6`
+ 	</select>
+ 	<select id="getDay6ById" resultType="com.crud.day6.vo.Day6">
+ 	SELECT * FROM `day_6`
+ 	WHERE id = #{id}
+ 	</select>
+ 	<delete id="deleteDay6ById">
+ 	DELETE 
+ 	FROM `day_6`
+ 	WHERE id = #{id}
+ 	</delete>
+ </mapper>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace="com.crud.day3.dao.Day3DAO">
+ <insert id="insertDay3">
+	 INSERT INTO `day_3`
+	 (
+		name	
+		,business
+		,scale
+		,headcount
+		,position
+		,responsibilities
+		,qualification
+		,type
+		,region
+		,salary
+		,deadline
+		,ranking
+		,awards
+		,ceo
+		,createdAt
+		,updatedAt
+	)
+	VALUES
+	(
+		#{name}
+		,#{business}
+		,#{scale}
+		,#{headcount}
+		,#{position}
+		,#{responsibilities}
+		,#{qualification}
+		,#{type}
+		,#{region}
+		,#{salary}
+		,#{deadline}
+		,#{ranking}
+		,#{awards}
+		,#{ceo}
+		,NOW()
+		,NOW()
+	)
+
+ </insert>
+ <update id="updateDay3">
+	 UPDATE `day_3`
+	 SET
+		name = #{name}
+		,business = #{business}
+		,scale = #{scale}
+		,headcount = #{headcount}
+		,position = #{position}
+		,responsibilities = #{responsibilities}
+		,qualification = #{qualification}
+		,type = #{type}
+		,region = #{region}
+		,salary = #{salary}
+		,deadline = #{deadline}
+		,ranking = #{ranking}
+		,awards = #{awards}
+		,ceo = #{ceo}
+		,updatedAt = NOW()
+	WHERE
+		id = #{id}
+</update>
+ <select id="seletInfoList" resultType="com.crud.day3.vo.Day3">
+ 	SELECT *
+ 	FROM `day_3`
+ </select>
+ <select id="seletInfo" resultType="com.crud.day3.vo.Day3">
+ 	SELECT *
+ 	FROM `day_3`
+ 	WHERE
+ 		id = #{id}
+ </select>
+ <delete id="deleteDay3">
+ 	DELETE 
+ 	FROM `day_3`
+ 	WHERE
+ 		id = #{id}
+ </delete>
+ </mapper>

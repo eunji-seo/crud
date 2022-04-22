@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace="com.crud.day2.dao.Day2DAO">
+ <insert id="insertSinger">
+ 	INSERT INTO `day_2`
+ 	(
+		`title`
+		,`playTime` 
+		,`lyricist`
+		,`composer`
+		,`name` 
+		,`debut`
+		,`agency`
+		,`albumTitle`
+		,`releaseDate` 
+		,`tracks` 
+		,`ranking`
+		,`awards` 
+		,`overseasActivities`
+		,`retirement` 
+		,`createdAt` 
+		,`updatedAt`
+ 	)
+ 	VALUES
+ 	(
+ 		#{title}
+ 		,#{playTime}
+ 		,#{lyricist}
+ 		,#{composer}
+ 		,#{name}
+ 		,#{debut}
+ 		,#{agency}
+ 		,#{albumTitle}
+ 		,#{releaseDate}
+ 		,#{tracks}
+ 		,#{ranking}
+ 		,#{awards}
+ 		,#{overseasActivities}
+ 		,#{retirement}
+ 		,NOW()
+ 		,NOW()
+ 	)
+ </insert>
+ <update id="updateSinger">
+ 	UPDATE `day_2`
+ 	SET
+		`title` = #{title}
+		,`playTime` = #{playTime}
+		,`lyricist` = #{lyricist}
+		,`composer` = #{composer}
+		,`name` = #{name}
+		,`debut` = #{debut}
+		,`agency` = #{agency}
+		,`albumTitle` = #{albumTitle}
+		,`releaseDate` = #{releaseDate}
+		,`tracks` = #{tracks}
+		,`ranking` = #{ranking}
+		,`awards` = #{awards}
+		,`overseasActivities` = #{overseasActivities}
+		,`retirement` = #{retirement}
+		,`updatedAt` = NOW()
+	WHERE
+		id = #{id}
+ 	
+ </update>
+ <select id="selectSingerList" resultType="com.crud.day2.vo.Day2">
+ 	SELECT *
+ 	FROM `day_2`
+ </select>
+ <select id="selectSinger" resultType="com.crud.day2.vo.Day2">
+ 	SELECT *
+ 	FROM `day_2`
+ 	WHERE
+ 		id = #{id}
+ </select>
+ <delete id="deleteSinger">
+ 	DELETE 
+ 	FROM `day_2`
+ 	WHERE
+ 		id = #{id}
+ </delete>
+ </mapper>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.crud.day9.dao.Day9DAO">
+	<insert id="insertDay9">
+		INSERT INTO `day_9`
+		(	
+			`name`
+			,`socialSecurityNumber`
+			,`uniqueIdentification`
+			,`sensitive`
+			,`individual`
+			,`offerUniqueIdentification`
+			,`offerSensitive`
+			,`offerIndividual`
+			,`thirdIndividual`
+			,`lookupUniqueIdentification`
+			,`lookupSensitive`
+			,`lookupIndividual`
+			,`createdAt`
+			,`updatedAt`
+		)
+		VALUES
+		(
+			#{name}
+			,#{socialSecurityNumber}
+			,#{uniqueIdentification}
+			,#{sensitive}
+			,#{individual}
+			,#{offerUniqueIdentification}
+			,#{offerSensitive}
+			,#{offerIndividual}
+			,#{thirdIndividual}
+			,#{lookupUniqueIdentification}
+			,#{lookupSensitive}
+			,#{lookupIndividual}
+			,NOW()
+			,NOW()
+		)
+	</insert>
+	<update id="updateDay9">
+		UPDATE `day_9`
+		SET 
+			
+			`name`=#{name}
+			,`socialSecurityNumber`= #{socialSecurityNumber}
+			,`uniqueIdentification`= #{uniqueIdentification}
+			,`sensitive`= #{sensitive}
+			,`individual`= #{individual}
+			,`offerUniqueIdentification`= #{offerUniqueIdentification}
+			,`offerSensitive`= #{offerSensitive}
+			,`offerIndividual`= #{offerIndividual}
+			,`thirdIndividual`= #{thirdIndividual}
+			,`lookupUniqueIdentification`= #{lookupUniqueIdentification}
+			,`lookupSensitive`= #{lookupSensitive}
+			,`lookupIndividual`= #{lookupIndividual}
+			,`updatedAt`= NOW()
+		WHERE
+			id = #{id}
+	</update>
+	<select id="selectDay9List" resultType="com.crud.day9.vo.Day9">
+		SELECT 
+			`id`
+			,`name`
+			,`socialSecurityNumber`
+			,`uniqueIdentification`
+			,`sensitive`
+			,`individual`
+			,`offerUniqueIdentification`
+			,`offerSensitive`
+			,`offerIndividual`
+			,`thirdIndividual`
+			,`lookupUniqueIdentification`
+			,`lookupSensitive`
+			,`lookupIndividual`
+			,`createdAt`
+			,`updatedAt`
+		FROM
+			`day_9`
+	
+	</select>
+	<select id="selectDay9" resultType="com.crud.day9.vo.Day9">
+		SELECT 
+			`id`
+			,`name`
+			,`socialSecurityNumber`
+			,`uniqueIdentification`
+			,`sensitive`
+			,`individual`
+			,`offerUniqueIdentification`
+			,`offerSensitive`
+			,`offerIndividual`
+			,`thirdIndividual`
+			,`lookupUniqueIdentification`
+			,`lookupSensitive`
+			,`lookupIndividual`
+			,`createdAt`
+			,`updatedAt`
+		FROM
+			`day_9`
+			
+		WHERE
+			id = #{id}
+	
+	</select>
+</mapper>

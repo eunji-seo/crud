@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+ <mapper namespace="com.crud.day1.dao.DayDAO">
+	<insert id="insertUser">
+	INSERT INTO `day_1`
+	(
+		`loginId` 
+		,`password`	
+		,`name`
+		,`birth` 
+		,`gender` 
+		,`phoneCall` 
+		,`phoneNumber` 
+		,`address`
+		,`highSchool` 
+		,`major` 
+		,`mainTechnology`
+		,`awards` 
+		,`militarySerivice`
+		,`hopeSalary` 
+		,`createdAt` 
+		,`updatedAt`
+	)
+	VALUES
+	(
+		#{loginId}
+		,#{password}
+		,#{name}
+		,#{birth}
+		,#{gender}
+		,#{phoneCall}
+		,#{phoneNumber}
+		,#{address}
+		,#{highSchool}
+		,#{major}
+		,#{mainTechnology}
+		,#{awards}
+		,#{militarySerivice}
+		,#{hopeSalary}
+		,NOW()
+		,NOW()
+	)
+	</insert>
+	<update id="updateUser">
+	UPDATE `day_1`
+	SET
+		`password`	= #{password}
+		,`name` = #{name}
+		,`birth` = #{birth}
+		,`gender` = #{gender}
+		,`phoneCall` = #{phoneCall}
+		,`phoneNumber` = #{phoneNumber}
+		,`address` = #{address}
+		,`highSchool` = #{highSchool}
+		,`major` = #{major}
+		,`mainTechnology` = #{mainTechnology}
+		,`awards` = #{awards}
+		,`militarySerivice` = #{militarySerivice}
+		,`hopeSalary` = #{hopeSalary}
+		,`updatedAt` = NOW()
+	WHERE
+		id = #{id}
+		
+	
+	</update>
+	<select id="selectUserList" resultType="com.crud.day1.vo.Day1">
+		SELECT * 
+		FROM day_1
+	</select>
+
+	<select id="selectUser" resultType="com.crud.day1.vo.Day1">
+		SELECT * 
+		FROM day_1
+		WHERE
+			id = #{id}
+	</select>
+	<delete id="deleteUser">
+		DELETE
+		FROM
+			`day_1`
+		WHERE
+			id = #{id}
+	
+	</delete>
+ </mapper>

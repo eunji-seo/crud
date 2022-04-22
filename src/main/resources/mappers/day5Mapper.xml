@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+ <mapper namespace="com.crud.day5.dao.Day5DAO">
+ 	<insert id="addDay5">
+	 	INSERT INTO `day_5`
+	 	(
+			name
+			,phoneNumber
+			,address
+			,businessNumber
+			,introduce
+			,menu
+			,userName
+			,point
+			,review
+			,parsonNumber
+			,deadline
+			,ranking
+			,awards
+			,ceo
+			,createdAt
+			,updatedAt
+	 	)
+	 	VALUES
+	 	(
+	 		#{name}
+	 		,#{phoneNumber}
+	 		,#{address}
+	 		,#{businessNumber}
+	 		,#{introduce}
+	 		,#{menu}
+	 		,#{userName}
+	 		,#{point}
+	 		,#{review}
+	 		,#{parsonNumber}
+	 		,#{deadline}
+	 		,#{ranking}
+	 		,#{awards}
+	 		,#{ceo}
+	 		,NOW()
+	 		,NOW()
+	 	)
+	 	
+ 	</insert>
+ 	<update id="updateDay5">
+	 	UPDATE`day_5`
+	 	SET
+			name = #{name}
+			,phoneNumber = #{phoneNumber}
+			,address = #{address}
+			,businessNumber = #{businessNumber}
+			,introduce = #{introduce}
+			,menu = #{menu}
+			,userName = #{userName}
+			,point = #{point}
+			,review = #{review}
+			,parsonNumber = #{parsonNumber}
+			,deadline = #{deadline}
+			,ranking = #{ranking}
+			,awards = #{awards}
+			,ceo = #{ceo}
+			,updatedAt = NOW()
+		WHERE
+			id = #{id}
+ 	</update>
+ 	
+ 	<select id="getDay5List" resultType="com.crud.day5.vo.Day5">
+ 		SELECT * FROM `day_5`
+ 	</select>
+ 	<select id="getDay5" resultType="com.crud.day5.vo.Day5">
+ 		SELECT * FROM `day_5`
+ 		WHERE id = #{id}
+ 	</select>
+ 	<delete id="DeleteDay5">
+ 	DELETE
+ 	FROM `day_5`
+ 	WHERE id = #{id}
+ 	</delete>
+ 	
+ </mapper>
