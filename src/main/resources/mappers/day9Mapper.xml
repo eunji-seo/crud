@@ -104,4 +104,10 @@
 			id = #{id}
 	
 	</select>
+	<delete id="deleteDay9">
+	DELETE 
+	FROM `day_9`
+	WHERE
+		`id` = ${id}
+	</delete>
 </mapper>

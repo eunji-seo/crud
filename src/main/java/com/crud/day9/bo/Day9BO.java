@@ -27,5 +27,8 @@ public class Day9BO {
 	public Day9 getDay9(int id){
 		return day9DAO.selectDay9(id);
 	} 
+	public int deleteDay9(int id){
+		return day9DAO.deleteDay9(id);
+	} 
 	
 }

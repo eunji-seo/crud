@@ -16,4 +16,6 @@ public interface Day9DAO {
 	public List<Day9> selectDay9List();
 	
 	public Day9 selectDay9(int id);
+
+	public int deleteDay9(int id);
 }

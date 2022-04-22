@@ -1,4 +1,4 @@
-package com.crud.day7.vo;
+package com.crud.day7;
 
 import java.util.List;
 
@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.crud.day7.bo.Day7BO;
+import com.crud.day7.vo.Day7;
 
 @Controller
 public class Day7Controller {

@@ -30,7 +30,7 @@
 	 			<td><a href="../day9/day9_detail?id=${day9List.id}">${day9List.name}</a></td>
 	 			<td>${day9List.socialSecurityNumber}</td>
 	 			<td>${day9List.uniqueIdentification}</td>
-	 			<td><button type="button" onclick="deleteBtn()" class="deleteBtn btn" data-day9-id="${day9List.id}">삭제</button></td>
+	 			<td><button type="button" onclick="deleteBtn()" class="deleteBtn btn" data-day9-id="${day9List.id}">${day9List.id}삭제</button></td>
 	 		</tr>
 	 	</c:forEach>
  	</tbody>
@@ -39,11 +39,11 @@
  <script type="text/javascript">
  	$('.deleteBtn').on('click',function(){
  		
- 		let id = $(this).data('day8-id');
+ 		let id = $(this).data('day9-id');
  		
  		$.ajax({
  			type:"DELETE"
- 			,url:"/day8/delete"
+ 			,url:"/day9/delete"
  			,data:{
  				"id":id
  			}

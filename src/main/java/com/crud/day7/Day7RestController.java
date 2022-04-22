@@ -1,4 +1,4 @@
-package com.crud.day7.vo;
+package com.crud.day7;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.crud.day7.bo.Day7BO;
+import com.crud.day7.vo.Day7;
 
 @RestController
 public class Day7RestController {
