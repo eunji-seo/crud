@@ -105,9 +105,9 @@
 	
 	</select>
 	<delete id="deleteDay9">
-	DELETE 
-	FROM `day_9`
-	WHERE
-		`id` = ${id}
+		DELETE 
+		FROM `day_9`
+		WHERE
+			`id` = ${id}
 	</delete>
 </mapper>

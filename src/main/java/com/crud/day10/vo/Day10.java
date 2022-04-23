@@ -17,6 +17,7 @@ public class Day10 {
 	  private String creditAgreement;
 	  private Date createdAt;
 	  private Date updatedAt;
+	  
 	public int getId() {
 		return id;
 	}

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace="com.crud.day10.mapper.Day10Mapper">
+ 	<insert id="insertDay10">
+ 		INSERT INTO `day_10`
+ 		(
+		  `name`
+		  ,`phoneNumber` 
+		  ,`terms` 
+		  ,`privacy` 
+		  ,`loginId` 
+		  ,`password` 
+		  ,`gender` 
+		  ,`email` 
+		  ,`creditAgreement` 
+		  ,`createdAt` 
+		  ,`updatedAt`
+ 		)
+ 		VALUES
+ 		(
+			#{name}
+			,#{phoneNumber}
+			,#{terms}
+			,#{privacy}
+			,#{loginId}
+			,#{password}
+			,#{gender}
+			,#{email}
+			,#{creditAgreement}
+			,NOW()
+			,NOW() 			
+ 		)
+ 	</insert>
+ 	<update id="updateDay10">
+ 		UPDATE `day_10`
+ 		SET 
+		  `name` = #{name}
+		  ,`phoneNumber`= #{phoneNumber}
+		  ,`terms` = #{terms}
+		  ,`privacy`= #{privacy}
+		  ,`loginId` = #{loginId}
+		  ,`password` = #{password}
+		  ,`gender` = #{gender}
+		  ,`email` = #{email}
+		  ,`creditAgreement`= #{creditAgreement}
+		  ,`updatedAt` = NOW()
+ 		WHERE
+ 			`id` = #{id}
+ 	</update>
+ 	<select id="getDay10List" resultType="com.crud.day10.vo.Day10">
+ 		SELECT 
+ 			`id`	
+ 			,`name`
+		  ,`phoneNumber` 
+		  ,`terms` 
+		  ,`privacy` 
+		  ,`loginId` 
+		  ,`password` 
+		  ,`gender` 
+		  ,`email` 
+		  ,`creditAgreement` 
+		  ,`createdAt` 
+		  ,`updatedAt`
+ 		FROM 
+ 			`day_10`
+ 		
+ 	</select>
+ 	<select id="getDay10" resultType="com.crud.day10.vo.Day10">
+ 		SELECT 
+ 			`id`	
+ 			,`name`
+		  ,`phoneNumber` 
+		  ,`terms` 
+		  ,`privacy` 
+		  ,`loginId` 
+		  ,`password` 
+		  ,`gender` 
+		  ,`email` 
+		  ,`creditAgreement` 
+		  ,`createdAt` 
+		  ,`updatedAt`
+ 		FROM 
+ 			`day_10`
+ 		WHERE 
+ 			id = #{id}
+ 	</select>
+ 	
+ 	<delete id="deleteDay10">
+ 		DELETE
+ 		FROM `day_10`
+ 		WHERE
+ 			`id` = #{id}
+ 	</delete>
+ 	
+ </mapper>

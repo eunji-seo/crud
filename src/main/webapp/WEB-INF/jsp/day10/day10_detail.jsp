@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,21 +16,25 @@
 
 </head>
 <body>
-	<input type="text" id="name" name="name" placeholder="name">
-	<input type="text" id="phoneNumber" name="phoneNumber" placeholder="phoneNumber">
-	<input type="checkbox" id="terms" name="terms" value="동의함">
-	<input type="checkbox" id="privacy" name="privacy" value="동의함">
-	<input type="text" id="loginId" name="loginId" placeholder="loginId">
-	<input type="password" id="password" name="password" placeholder="password">
-	<input type="text" id="gender" name="gender" placeholder="gender">
-	<input type="text" id="email" name="email" placeholder="email">
-	<input type="checkbox" id="creditAgreement" name="creditAgreement" value="동의함">
-	<button type="button" onclick="submit()" class="btn btn-none">시작</button>
+	<input type="text" id="name" name="name" placeholder="name" value="${day10.name}">
+	<input type="text" id="phoneNumber" name="phoneNumber" placeholder="phoneNumber"  value="${day10.phoneNumber}">
+	<label for="terms">이용약관 동의<input type="checkbox" id="terms" name="terms" value="${day10.terms}"<c:if test="${day10.terms eq '동의함'}">checked="checked"</c:if>/></label>
+	<label for="privacy">개인정보 동의</label><input type="checkbox" id="privacy" name="privacy" value="${day10.privacy}"<c:if test="${day10.terms eq '동의함'}">checked="checked"</c:if>/></label>
+	<input type="text" id="loginId" name="loginId" placeholder="loginId"  value="${day10.loginId}">
+	<input type="password" id="password" name="password" placeholder="password"  value="${day10.password}">
+	<input type="text" id="gender" name="gender" placeholder="gender"  value="${day10.gender}">
+	<input type="text" id="email" name="email" placeholder="email"  value="${day10.email}">
+	<label for="creditAgreement">신용 동의</label><input type="checkbox" id="creditAgreement" name="creditAgreement" value="${day10.creditAgreement}"<c:if test="${day10.creditAgreement eq '동의함'}">checked="checked"</c:if>/></label>
+	<button type="button" onclick="submit()" class="submitBtn btn btn-none" data-day10-id="${day10.id}">시작</button>
 	 
 <script type="text/javascript">
 	
 	function submit(){
 		
+		
+		$('input:checkbox[value=${day10.terms}]').prop('checked',true);
+		
+		var id = $('.submitBtn').data('day10-id');
 		var name = $('#name').val().trim();
 		var phoneNumber = $('#phoneNumber').val().trim();
 		var terms = $('input:checkbox[name=terms]:checked').val();
@@ -41,10 +46,11 @@
 		var creditAgreement = $('input:checkbox[name=creditAgreement]:checked').val();
 		
 		$.ajax({
-			type: "POST"
-			,url: "/day10/stock"
+			type: "PUT"
+			,url: "/day10/day10_detail"
 			,data: {
-				"name":name
+				"id":id
+				,"name":name
 				,"phoneNumber":phoneNumber
 				,"terms":terms
 				,"privacy":privacy
@@ -57,7 +63,7 @@
 			,success: function(data){
 				if(data.result == 'success'){
 					alert("성공");
-					location.href="/day10/day10_list";
+					location.reload();
 				}else {
 					alert(data.errorMessage);
 				}
