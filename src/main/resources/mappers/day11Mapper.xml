@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+ <mapper namespace="com.crud.day11.mapper.Day11Mapper">
+ 	<insert id="insertDay11">
+ 		INSERT INTO `day_11`
+ 		(
+			`date`
+			,`closingPrice`
+			,`upsAndDowns`
+			,`dayToDay`
+			,`trading`
+			,`transaction`
+			,`cigar`
+			,`expensive`
+			,`rowCost`
+			,`fastening`
+			,`createdAt`
+			,`updatedAt`
+ 		)
+ 		VALUES
+ 		(
+ 			#{date}
+ 			,#{closingPrice}
+ 			,#{upsAndDowns}
+ 			,#{dayToDay}
+ 			,#{trading}
+ 			,#{transaction}
+ 			,#{cigar}
+ 			,#{expensive}
+ 			,#{rowCost}
+ 			,#{fastening}
+ 			,NOW()
+ 			,NOW()
+ 		)
+ 	</insert>
+ 	<update id="updateDay11">
+ 		UPDATE `day_11`
+ 		SET
+ 			`date`=#{date}
+			,`closingPrice`=#{closingPrice}
+			,`upsAndDowns`=#{upsAndDowns}
+			,`dayToDay`=#{dayToDay}
+			,`trading`=#{trading}
+			,`transaction`=#{transaction}
+			,`cigar`=#{cigar}
+			,`expensive`=#{expensive}
+			,`rowCost`=#{rowCost}
+			,`fastening`=#{fastening}
+			,`updatedAt`=NOW()
+		WHERE
+			`id` = #{id}
+ 	</update>
+ 	<select id="getDay11List" resultType="com.crud.day11.vo.Day11">
+ 		SELECT 
+ 			`id`
+ 			,`date`
+			,`closingPrice`
+			,`upsAndDowns`
+			,`dayToDay`
+			,`trading`
+			,`transaction`
+			,`cigar`
+			,`expensive`
+			,`rowCost`
+			,`fastening`
+			,`createdAt`
+			,`updatedAt`
+ 		FROM
+ 			`day_11`
+ 	</select>
+ 	<select id="selectDay11" resultType="com.crud.day11.vo.Day11">
+ 		SELECT 
+ 			`id`
+ 			,`date`
+			,`closingPrice`
+			,`upsAndDowns`
+			,`dayToDay`
+			,`trading`
+			,`transaction`
+			,`cigar`
+			,`expensive`
+			,`rowCost`
+			,`fastening`
+			,`createdAt`
+			,`updatedAt`
+ 		FROM
+ 			`day_11`
+ 		WHERE
+ 		 	`id` = #{id}
+ 	</select>
+ 	<delete id="deleteDay11">
+ 	DELETE
+ 	FROM `day_11`
+ 	WHERE
+ 		`id` = #{id}
+ 	</delete>
+ </mapper>
