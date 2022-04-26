@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace="com.crud.day12.mapper.Day12Mapper">
+ 	<insert id="insertDay12">
+ 		INSERT INTO `day_12`
+ 		(
+		 	`summary`
+		    ,`currentPrice`
+		    ,`faceValue`
+		    ,`fiveDayHigh`
+		    ,`twentyDayHigh`
+		    ,`fiftyTowWeeksHigh`
+		    ,`listingdate`
+		    ,`listedOrder`
+		    ,`marketCap`
+		    ,`netProfit`
+		    ,`PER`
+		    ,`PBR`
+		    ,`createdAt`
+		    ,`updatedAt`
+ 		)
+ 		VALUES
+ 		(
+ 			#{summary}
+ 			,#{currentPrice}
+ 			,#{faceValue}
+ 			,#{fiveDayHigh}
+ 			,#{twentyDayHigh}
+ 			,#{fiftyTowWeeksHigh}
+ 			,#{listingdate}
+ 			,#{listedOrder}
+ 			,#{marketCap}
+ 			,#{netProfit}
+ 			,#{PER}
+ 			,#{PBR}
+ 			,NOW()
+ 			,NOW()
+ 		)
+ 	</insert>
+ 	<update id="updateDay12">
+ 		UPDATE `day_12`
+ 		SET
+		 	`summary` =#{summary}
+		    ,`currentPrice`=#{currentPrice}
+		    ,`faceValue`=#{faceValue}
+		    ,`fiveDayHigh`=#{fiveDayHigh}
+		    ,`twentyDayHigh`=#{twentyDayHigh}
+		    ,`fiftyTowWeeksHigh`=#{fiftyTowWeeksHigh}
+		    ,`listingdate`=#{listingdate}
+		    ,`listedOrder`=#{listedOrder}
+		    ,`marketCap`=#{marketCap}
+		    ,`netProfit`=#{netProfit}
+		    ,`PER`=#{PER}
+		    ,`PBR`=#{PBR}
+		    ,`updatedAt`=NOW()
+ 		WHERE
+ 			`id` = #{id}
+ 	</update>
+ 	
+ 	<select id="getDay12List" resultType="com.crud.day12.vo.Day12">
+ 		SELECT 
+ 			`id`
+ 			,`summary`
+		    ,`currentPrice`
+		    ,`faceValue`
+		    ,`fiveDayHigh`
+		    ,`twentyDayHigh`
+		    ,`fiftyTowWeeksHigh`
+		    ,`listingdate`
+		    ,`listedOrder`
+		    ,`marketCap`
+		    ,`netProfit`
+		    ,`PER`
+		    ,`PBR`
+		    ,`createdAt`
+		    ,`updatedAt`
+		FROM
+			`day_12`    
+ 	</select>
+ 	<select id="getDay12" resultType="com.crud.day12.vo.Day12">
+ 		SELECT 
+ 			`id`
+ 			,`summary`
+		    ,`currentPrice`
+		    ,`faceValue`
+		    ,`fiveDayHigh`
+		    ,`twentyDayHigh`
+		    ,`fiftyTowWeeksHigh`
+		    ,`listingdate`
+		    ,`listedOrder`
+		    ,`marketCap`
+		    ,`netProfit`
+		    ,`PER`
+		    ,`PBR`
+		    ,`createdAt`
+		    ,`updatedAt`
+		FROM
+			`day_12`
+		WHERE
+			`id` = #{id}    
+ 	</select>
+ 	<delete id="deleteDay12">
+ 		DELETE
+ 		FROM `day_12`
+ 		WHERE
+ 			`id` = #{id}
+ 	</delete>
+ </mapper>
