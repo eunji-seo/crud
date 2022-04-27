@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+ <mapper namespace="com.crud.day13.mapper.Day13Mapper">
+ 
+ 	<insert id="addDay13">
+ 	INSERT INTO `day_13`
+ 	(
+	 	`previousClosingPrice`
+	    ,`substitute`
+	    ,`fiveDayLow`
+	    ,`twentyDayLow`
+	    ,`fiftyTowWeeksLow`
+	    ,`publicOffering`
+	    ,`addListing`
+	    ,`capital`
+	    ,`netProfit`
+	    ,`EPS`
+	    ,`BPS`
+	    ,`createdAt`
+	    ,`updatedAt`
+ 	)
+ 	VALUES
+ 	(
+ 		#{previousClosingPrice}
+ 		,#{substitute}
+ 		,#{fiveDayLow}
+ 		,#{twentyDayLow}
+ 		,#{fiftyTowWeeksLow}
+ 		,#{publicOffering}
+ 		,#{addListing}
+ 		,#{capital}
+ 		,#{netProfit}
+ 		,#{EPS}
+ 		,#{BPS}
+ 		,NOW()
+ 		,NOW()
+ 	)
+ 	</insert>
+ 	<update id="updateDay13">
+ 	UPDATE `day_13`
+ 	SET
+ 	 	`previousClosingPrice` =#{previousClosingPrice}
+	    ,`substitute`= #{substitute}
+	    ,`fiveDayLow`= #{fiveDayLow}
+	    ,`twentyDayLow`= #{twentyDayLow}
+	    ,`fiftyTowWeeksLow`= #{fiftyTowWeeksLow}
+	    ,`publicOffering`= #{publicOffering}
+	    ,`addListing`= #{addListing}
+	    ,`capital`= #{capital}
+	    ,`netProfit`= #{netProfit}
+	    ,`EPS`= #{EPS}
+	    ,`BPS`= #{BPS}
+	    ,`updatedAt`= NOW()
+ 	WHERE
+ 		`id` = #{id}	
+ 		
+ 	</update>
+ 	
+ 	<select id="getDay13List" resultType="com.crud.day13.vo.Day13">
+ 		SELECT 
+	 		`id`	
+		 	,`previousClosingPrice`
+		    ,`substitute`
+		    ,`fiveDayLow`
+		    ,`twentyDayLow`
+		    ,`fiftyTowWeeksLow`
+		    ,`publicOffering`
+		    ,`addListing`
+		    ,`capital`
+		    ,`netProfit`
+		    ,`EPS`
+		    ,`BPS`
+		    ,`createdAt`
+		    ,`updatedAt`
+ 		FROM
+ 			`day_13`
+			
+ 	</select>
+ 
+ 	<select id="getDay13" resultType="com.crud.day13.vo.Day13">
+ 		SELECT 
+	 		`id`	
+		 	,`previousClosingPrice`
+		    ,`substitute`
+		    ,`fiveDayLow`
+		    ,`twentyDayLow`
+		    ,`fiftyTowWeeksLow`
+		    ,`publicOffering`
+		    ,`addListing`
+		    ,`capital`
+		    ,`netProfit`
+		    ,`EPS`
+		    ,`BPS`
+		    ,`createdAt`
+		    ,`updatedAt`
+ 		FROM
+ 			`day_13`
+ 		WHERE
+ 			`id` = #{id}
+			
+ 	</select>
+ 	<delete id="deleteDay13">
+ 		DELETE
+ 		FROM `day_13`
+ 		WHERE
+ 			`id` = #{id}
+ 	
+ 	</delete>
+ </mapper>
