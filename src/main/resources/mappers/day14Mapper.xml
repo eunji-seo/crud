@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+  <mapper namespace="com.crud.day14.mapper.Day14Mapper">
+  	<insert id="addDay14">
+  		INSERT INTO `day_14`
+  		(
+		    `userId`
+		    ,`name`
+		    ,`PhoneNumber`
+		    ,`officeCallNumber`
+		    ,`smsReseption`
+		    ,`callRejection`
+		    ,`address`
+		    ,`officeAddress`
+		    ,`email`
+		    ,`emailReseption`
+		    ,`DepositRelated`
+		    ,`goddessRelated`
+		    ,`createdAt`
+		    ,`updatedAt`
+  		)
+  		VALUES
+  		(
+  			#{userId}
+  			,#{name}
+  			,#{PhoneNumber}
+  			,#{officeCallNumber}
+  			,#{smsReseption}
+  			,#{callRejection}
+  			,#{address}
+  			,#{officeAddress}
+  			,#{email}
+  			,#{emailReseption}
+  			,#{DepositRelated}
+  			,#{goddessRelated}
+  			,NOW()
+  			,NOW()
+  		)
+  	</insert>
+  	<update id="updateDay14">
+  		UPDATE `day_14`
+  		SET
+		    `userId` = #{userId}
+		    ,`name`= #{name} 
+		    ,`PhoneNumber`= #{PhoneNumber}
+		    ,`officeCallNumber`= #{officeCallNumber}
+		    ,`smsReseption`= #{smsReseption}
+		    ,`callRejection`=#{callRejection}
+		    ,`address`= #{address}
+		    ,`officeAddress`= #{officeAddress}
+		    ,`email`= #{email}
+		    ,`emailReseption`=#{emailReseption}
+		    ,`DepositRelated`=#{DepositRelated}
+		    ,`goddessRelated`=#{goddessRelated}
+		    ,`updatedAt`=NOW()
+  		WHERE
+  			`id` = #{id}			
+  	</update>
+  	<select id="getDay14List" resultType="com.crud.day14.vo.Day14">
+  	 SELECT
+  	 		`id`
+  	 		,`userId`
+		    ,`name`
+		    ,`PhoneNumber`
+		    ,`officeCallNumber`
+		    ,`smsReseption`
+		    ,`callRejection`
+		    ,`address`
+		    ,`officeAddress`
+		    ,`email`
+		    ,`emailReseption`
+		    ,`DepositRelated`
+		    ,`goddessRelated`
+		    ,`createdAt`
+		    ,`updatedAt`
+  	 FROM 
+  	 	`day_14`
+  	</select>
+  	<select id="getDay14" resultType="com.crud.day14.vo.Day14">
+  	 SELECT
+  	 		`id`
+  	 		,`userId`
+		    ,`name`
+		    ,`PhoneNumber`
+		    ,`officeCallNumber`
+		    ,`smsReseption`
+		    ,`callRejection`
+		    ,`address`
+		    ,`officeAddress`
+		    ,`email`
+		    ,`emailReseption`
+		    ,`DepositRelated`
+		    ,`goddessRelated`
+		    ,`createdAt`
+		    ,`updatedAt`
+  	 FROM 
+  	 	`day_14`
+  	 WHERE
+  	 	`id` = #{id}
+  	</select>
+  	<delete id="deleteDay14">
+  		DELETE
+  		FROM `day_14`
+  		WHERE
+  			`id` = #{id}
+  	</delete>
+  </mapper>
