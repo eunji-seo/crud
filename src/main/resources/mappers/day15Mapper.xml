@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+ <mapper namespace="com.crud.day15.mapper.Day15Mapper">
+ 	<insert id="addDay15">
+ 		INSERT INTO `day_15`
+ 		(
+ 			`country`
+		    ,`capital`
+		    ,`nationalAnthem`
+		    ,`language`
+		    ,`monetaryUnit`
+		    ,`area`
+		    ,`population`
+		    ,`gdp`
+		    ,`climate`
+		    ,`history`
+		    ,`gdpPerCapita`
+		    ,`createdAt`
+		    ,`updatedAt`
+		)
+ 		VALUES
+ 		(
+ 			#{country}
+ 			,#{capital}
+ 			,#{nationalAnthem}
+ 			,#{language}
+ 			,#{monetaryUnit}
+ 			,#{area}
+ 			,#{population}
+ 			,#{gdp}
+ 			,#{climate}
+ 			,#{history}
+ 			,#{gdpPerCapita}
+ 			,NOW()
+ 			,NOW()
+ 		)
+ 	</insert>
+ 	<update id="updateDay15">
+ 		UPDATE `day_15`
+ 		SET
+ 			`country` =#{country}
+		    ,`capital`= #{capital}
+		    ,`nationalAnthem`=#{nationalAnthem}
+		    ,`language`=#{language}
+		    ,`monetaryUnit`=#{monetaryUnit}
+		    ,`area`=#{area}
+		    ,`population`=#{population}
+		    ,`gdp`=#{gdp}
+		    ,`climate`=#{climate}
+		    ,`history`=#{history}
+		    ,`gdpPerCapita`=#{gdpPerCapita}
+		    ,`updatedAt`=NOW()
+		WHERE
+			`id` = #{id}
+ 	</update>
+ 	<select id="getDay15List" resultType="com.crud.day15.vo.Day15">
+ 		SELECT
+ 			`id`
+ 			,`country`
+		    ,`capital`
+		    ,`nationalAnthem`
+		    ,`language`
+		    ,`monetaryUnit`
+		    ,`area`
+		    ,`population`
+		    ,`gdp`
+		    ,`climate`
+		    ,`history`
+		    ,`gdpPerCapita`
+		    ,`createdAt`
+		    ,`updatedAt`
+		FROM
+			`day_15`
+ 	</select>
+ 	<select id="getDay15" resultType="com.crud.day15.vo.Day15">
+ 		SELECT
+ 			`id`
+ 			,`country`
+		    ,`capital`
+		    ,`nationalAnthem`
+		    ,`language`
+		    ,`monetaryUnit`
+		    ,`area`
+		    ,`population`
+		    ,`gdp`
+		    ,`climate`
+		    ,`history`
+		    ,`gdpPerCapita`
+		    ,`createdAt`
+		    ,`updatedAt`
+		FROM
+			`day_15`
+		WHERE
+			`id` = #{id}
+ 	</select>
+ 	<delete id="deleteDay15">
+ 		DELETE
+ 		FROM`day_15`	
+ 		WHERE
+ 			`id` = #{id} 
+ 	</delete>
+ </mapper>
